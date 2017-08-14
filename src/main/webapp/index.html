@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html ng-app="appCogniBi">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CogniBI</title>
+	<link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+	<link rel="stylesheet" type="text/css" href="css/principal.css">
+
+</head>
+
+<body ng-controller="appCogniBiCtrl" ng-init="init()">
+	{{oi}}
+	<header>
+		<nav>
+			<div class="nav-wrapper light-blue darken-3">
+				<a href="#" class="brand-logo">CogniBI</a>
+				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down button-collapse">
+					<li><a href="#">Início</a></li>
+					<li><a href="#a-equipe">A Equipe</a></li>
+					<li><a href="#cognibi">CogniBI</a></li>
+					<li><a href="#">Contato</a></li>
+				</ul>
+				<ul class="side-nav" id="mobile-demo">
+					<li><a href="#">Início</a></li>
+					<li><a href="#a-equipe">A Equipe</a></li>
+					<li><a href="#cognibi">CogniBI</a></li>
+					<li><a href="#">Contato</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<main>
+		<section id="inicio">
+			<img class="banner-inicio" src="./images/banner-inicio.jpg">
+		</section>
+		<section id="a-equipe" class="light-blue">
+			<p>
+				<h3 class="titulos-de-sessao">CogniBI Makers</h3>
+			</p>
+			<div class="row">
+				<div id="bruna-card" class="col s12 m6 l3">
+					<div class="card">
+						<div class="card-image waves-effect waves-block waves-light">
+							<img class="activator" src="./images/banner-inicio.jpg">
+						</div>
+						<div class="card-content">
+							<span class="card-title activator grey-text text-darken-4">Bruna</span>
+							<span class="grey-text text-darken-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+							<div class="row center">
+								<i class="material-icons social-media"><img src="./images/linkedin.png"></i>
+								<i class="material-icons social-media"><img src="./images/github.png"></i>
+								<i class="material-icons social-media"><img src="./images/facebook.png"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="caique-card" class="col s12 m6 l3">
+					<div class="card">
+						<div class="card-image waves-effect waves-block waves-light">
+							<img class="activator" src="./images/caique.jpg">
+						</div>
+						<div class="card-content">
+							<span class="card-title activator grey-text text-darken-4">Caique</span>
+							<span class="grey-text text-darken-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+							<div class="row center ">
+								<i class="material-icons social-media"><img src="./images/linkedin.png"></i>
+								<i class="material-icons social-media"><img src="./images/github.png"></i>
+								<i class="material-icons social-media"><img src="./images/facebook.png"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="jong-card" class="col s12 m6 l3">
+					<div class="card">
+						<div class="card-image waves-effect waves-block waves-light">
+							<img class="activator" src="./images/banner-inicio.jpg">
+						</div>
+						<div class="card-content">
+							<span class="card-title activator grey-text text-darken-4">Jong</span>
+							<span class="grey-text text-darken-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+							<div class="row center">
+								<i class="material-icons social-media"><img src="./images/linkedin.png"></i>
+								<i class="material-icons social-media"><img src="./images/github.png"></i>
+								<i class="material-icons social-media"><img src="./images/facebook.png"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="paulo-card" class="col s12 m6 l3">
+					<div class="card">
+						<div class="card-image waves-effect waves-block waves-light">
+							<img class="activator" src="./images/banner-inicio.jpg">
+						</div>
+						<div class="card-content">
+							<span class="card-title activator grey-text text-darken-4">Paulo</span>
+							<span class="grey-text text-darken-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+							<div class="row center">
+								<i class="material-icons social-media"><img src="./images/linkedin.png"></i>
+								<i class="material-icons social-media"><img src="./images/github.png"></i>
+								<i class="material-icons social-media"><img src="./images/facebook.png"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="cognibi" class="blue darken-4">
+			<p>
+				<h3 class="titulos-de-sessao">Bem-Vindo ao CogniBI</h3>
+			</p>
+			<div class="row">
+				<div class="container z-depth-5 white">
+					<div class="chat">
+						<div id="conversa" class="row">
+							<div class="row">
+								<div class="balao-mensagem-cognibi left">
+									<p class="texto-mensagem">Boa Noite,meu nome é CogniBI</p>
+									<p ng-model="oi">{{oi}}</p>
+								</div>
+							</div>
+						</div>
+						<div id="form-mensagem" class="row">
+							<form id="mensagem-conversa">
+								<div class="container s12 m4 l8">
+									<input id="mensagem" name="mensagem" type="text" placeholder="Converse com o CogniBI" class="campo">
+								</div>
+								<div class="container s12 m4 l2">
+									<button id="btn-envia-mensagem" class="botao bto-principal waves-effect waves-light btn">Enviar</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer class="page-footer light-blue darken-2">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">CogniBI</h5>
+					<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="white-text">Links</h5>
+					<ul>
+						<li><a class="grey-text text-lighten-3" href="#!">Inicio</a></li>
+						</br>
+						<li><a class="grey-text text-lighten-3" href="#!">A Equipe</a></li>
+						</br>
+						<li><a class="grey-text text-lighten-3" href="#!">CogniBI</a></li>
+						</br>
+						<li><a class="grey-text text-lighten-3" href="#!">Contato</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				© 2017 Todos os direitos reservados
+			</div>
+		</div>
+	</footer>
+
+	<!--AngularJS-->
+	<script src="js/angular.js"></script>
+	<!-- <script src="js/angular-resource.js"></script> -->
+	<!-- <script src="js/teste.js"></script> -->
+	<!--Import jQuery before materialize.js-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script src="js/teste.js"></script>
+	<script src="js/menu.js"></script>
+
+</body>
+
+</html>
