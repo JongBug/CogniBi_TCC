@@ -1,19 +1,6 @@
 var appCogniBi = angular.module('appCogniBi', []);
   appCogniBi.controller('appCogniBiCtrl',['$scope','$http', function($scope, $http){
 
-    $scope.opNome = function () { // Função da cascata de clientes
-        $scope.oi;
-        var baseUrl = 'rest/cognibi/clientes';
-        $http.get(baseUrl).then(function(response) {
-        $scope.oi = response.data;
-        console.log($scope.oi);
-        }, function(err) {
-        console.log(err);
-        });
-    };
-
-    $scope.init = function () {
-      $scope.oi = "hiiiiiiiiiii";
       var btnEnviaMensagem = document.querySelector("#btn-envia-mensagem");
       btnEnviaMensagem.addEventListener("click", function () {
         event.preventDefault(); // Evita recarregamento da página
@@ -23,6 +10,17 @@ var appCogniBi = angular.module('appCogniBi', []);
 
         if (textoPergunta != "") {
             var balaoComMensagem = montaBalaoComMensagem(textoPergunta);
+
+            // Comunicao com servidor
+            var baseUrl = 'rest/cognibi/chat/' + textoPergunta;
+            $http.get(baseUrl).then(function(response) {
+            	//AQUI EH A RESPOSTA DO SERVIDOR RESPONSE.DATA.CONVERSA
+            	$scope.oi = response.data.conversa;
+            }, function(err) {
+            console.log(err);
+            });
+            //
+
             var conversa = document.querySelector("#conversa");
             conversa.appendChild(balaoComMensagem);
             conversa.scrollTop = conversa.scrollHeight;
@@ -60,6 +58,5 @@ var appCogniBi = angular.module('appCogniBi', []);
 
         return montaMensagem;
       };
-    }
 
 }]);
