@@ -14,13 +14,18 @@ appCogniBi.controller('appCogniBiCtrl', ['$scope', '$http', function ($scope, $h
       conversa.appendChild(balaoComMensagemUser);
       conversa.scrollTop = conversa.scrollHeight;
 
+      var dataObj = { // Objeto com as informações.
+    		  textoPergunta: textoPergunta,
+              context: $scope.context
+          };
 
-      
       // Comunicao com servidor
-      var baseUrl = 'rest/cognibi/chat/' + textoPergunta;
-      $http.get(baseUrl).then(function (response) {
+      //var baseUrl = 'rest/cognibi/chat/' + textoPergunta;
+      var baseUrl = 'rest/cognibi/chat';      
+      $http.post(baseUrl, dataObj).then(function (response) {
         //AQUI EH A RESPOSTA DO SERVIDOR RESPONSE.DATA.CONVERSA
-        $scope.oi = response.data.conversa;
+        //$scope.oi = response.data.conversa;
+    	  $scope.context = response.data.context;
         var balaoComMensagemCog = montaBalaoComMensagemCog(response.data.conversa);
         conversa.appendChild(balaoComMensagemCog);
         conversa.scrollTop = conversa.scrollHeight;
