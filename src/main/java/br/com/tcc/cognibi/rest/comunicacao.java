@@ -43,14 +43,14 @@ public class comunicacao {
 	public static MessageResponse conversationAPI(String input,Map<String, Object> context){
 
 		ConversationService service = new ConversationService("2017-02-03");
-		service.setUsernameAndPassword("6de4ed4e-74ea-43eb-9002-8b788f3b2d4f", "gOX60XnFxpmA");
+		service.setUsernameAndPassword("<<USERNAME>>", "<<PASSWORD>>");
 		
 		MessageRequest newMessage = new MessageRequest.Builder()
 				.inputText(input)
 				.context(context)
 				.build();
 		
-		String workspaceId = "0d10283e-5cf9-43e6-95fd-1f7f7b276ac6";
+		String workspaceId = "WORKSPACE_ID";
 		MessageResponse response = service.message(workspaceId, newMessage).execute();
 		
 		return response;
