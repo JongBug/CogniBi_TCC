@@ -11,9 +11,9 @@ import org.bson.codecs.DecoderContext;
 import org.bson.codecs.EncoderContext;
 import org.bson.types.ObjectId;
 
-import br.com.tcc.cognibi.models.Aluno;
+import br.com.tcc.cognibi.beans.DadosRequest;
 
-public class AlunoCodec implements CollectibleCodec<Aluno> {
+public class AlunoCodec implements CollectibleCodec<DadosRequest> {
 
 	public AlunoCodec(Codec<Document> codec) {
 		this.codec = codec;
@@ -21,14 +21,14 @@ public class AlunoCodec implements CollectibleCodec<Aluno> {
 
 	private Codec<Document> codec;
 
-	public void encode(BsonWriter writer, Aluno aluno, EncoderContext encoder) {
+	public void encode(BsonWriter writer, DadosRequest aluno, EncoderContext encoder) {
 		
 		ObjectId id = aluno.getId();
 		String nome = aluno.getNome();
 		String escolaridade = aluno.getEscolaridade();
 		String sexo = aluno.getSexo();
 		String email = aluno.getEmail();
-		String mensagem = aluno.getMensagem();
+		String mensagem = aluno.getTextoPergunta();
 
 		Document document = new Document();
 
@@ -43,22 +43,22 @@ public class AlunoCodec implements CollectibleCodec<Aluno> {
 	}
 
 
-	public Class<Aluno> getEncoderClass() {
-		return Aluno.class;
+	public Class<DadosRequest> getEncoderClass() {
+		return DadosRequest.class;
 	}
 
 
-	public boolean documentHasId(Aluno aluno) {
+	public boolean documentHasId(DadosRequest aluno) {
 		return aluno.getId() == null;
 	}
 
 
-	public Aluno generateIdIfAbsentFromDocument(Aluno aluno) {
+	public DadosRequest generateIdIfAbsentFromDocument(DadosRequest aluno) {
 		return documentHasId(aluno) ? aluno.criarId() : aluno;
 	}
 
 	
-	public BsonValue getDocumentId(Aluno aluno) {
+	public BsonValue getDocumentId(DadosRequest aluno) {
 		if (!documentHasId(aluno)) {
 			throw new IllegalStateException("Esse documet nao tem Id");
 		}
@@ -66,7 +66,7 @@ public class AlunoCodec implements CollectibleCodec<Aluno> {
 	}
 
 	
-	public Aluno decode(BsonReader arg0, DecoderContext arg1) {
+	public DadosRequest decode(BsonReader arg0, DecoderContext arg1) {
 		// TODO Auto-generated method stub
 		return null;
 	}

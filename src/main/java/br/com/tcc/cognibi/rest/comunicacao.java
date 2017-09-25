@@ -26,6 +26,11 @@ public class comunicacao {
 	@Path("/chat")
 	@Produces(MediaType.APPLICATION_JSON)
 	public DadosComunicacao conversa(DadosRequest data) {
+		System.out.println(data.getNome());
+		System.out.println(data.getEmail());
+		System.out.println(data.getEscolaridade());
+		System.out.println(data.getSexo());
+		System.out.println(data.getTextoPergunta());
 		
 		DadosComunicacao conversa = new DadosComunicacao();
 
@@ -43,14 +48,14 @@ public class comunicacao {
 	public static MessageResponse conversationAPI(String input,Map<String, Object> context){
 
 		ConversationService service = new ConversationService("2017-02-03");
-		service.setUsernameAndPassword("<<USERNAME>>", "<<PASSWORD>>");
+		service.setUsernameAndPassword("6de4ed4e-74ea-43eb-9002-8b788f3b2d4f", "gOX60XnFxpmA");
 		
 		MessageRequest newMessage = new MessageRequest.Builder()
 				.inputText(input)
 				.context(context)
 				.build();
 		
-		String workspaceId = "WORKSPACE_ID";
+		String workspaceId = "0d10283e-5cf9-43e6-95fd-1f7f7b276ac6";
 		MessageResponse response = service.message(workspaceId, newMessage).execute();
 		
 		return response;

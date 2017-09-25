@@ -11,8 +11,8 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 
+import br.com.tcc.cognibi.beans.DadosRequest;
 import br.com.tcc.cognibi.codecs.AlunoCodec;
-import br.com.tcc.cognibi.models.Aluno;
 
 public class AlunoRepository {
 
@@ -33,10 +33,10 @@ public class AlunoRepository {
 		this.bancoDeDados = cliente.getDatabase("test");
 	}
 
-	public void salvar(Aluno aluno) {
+	public void salvar(DadosRequest aluno) {
 
 		criarConexao();
-		MongoCollection<Aluno> alunos = bancoDeDados.getCollection("alunos", Aluno.class);
+		MongoCollection<DadosRequest> alunos = bancoDeDados.getCollection("alunos", DadosRequest.class);
 
 		if (aluno.getId() == null) {
 			alunos.insertOne(aluno);

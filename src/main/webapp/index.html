@@ -120,41 +120,36 @@
 			</p>
 			<div class="row">
 				<div class="container z-depth-5 white">
-					<div class="formulario">
+					<div class="formulario" ng-hide=notEmpty>
 						<form class="col s12">
 							<div class="row">
 								<div class="input-field col s6 l8">
 									<label>Nome:</label>
-									<input placeholder="Insira seu nome aqui" id="form-nome" type="text" class="validate">
+									<input ng-model="nomeAluno" placeholder="Insira seu nome aqui" id="form-nome" type="text" class="validate">
 								</div>
 								<div class="input-field col s12 l4">
-									<select>
-										<option value="1" selected >Não Informado</option>
-										<option value="2">Médio - incompleto</option>
-										<option value="3">Médio - Completo</option>
-										<option value="4">Superior - Inconpleto</option>
-										<option value="5">Superior - Completo</option>
+									<select ng-model="escolaridadeAluno">
+										<option value="{{dados}}" ng-repeat="dados in valores.escolaridade" >{{dados}}</option>
 									</select>
 									<label>Escolaridade:</label>
 								</div>
 								<div class="input-field col s6 l8">
 									<label>E-mail:</label>
-									<input placeholder="Insira seu nome aqui" id="form-email" type="email" class="validate">
+									<input ng-model="emailAluno" placeholder="Insira seu nome aqui" id="form-email" type="email" class="validate">
 								</div>
 								<div class="input-field col s12 l4">
-									<select>
-										<option value="1">Feminino</option>
-										<option value="2">Masculino</option>
+									<select ng-model="sexoAluno">
+										<option value="{{dados}}" ng-repeat="dados in valores.sexo">{{dados}}</option>
 									</select>
 									<label>Sexo:</label>
 								</div>
 								<div class="center">
-									<a class="waves-effect waves-light btn" ><i id="btn-envia-form" class="material-icons right">chat</i>Conversar !</a>
+									<a class="waves-effect waves-light btn" ng-click=cadastro()><i id="btn-envia-form" class="material-icons right">chat</i>Conversar !</a>
 								</div>
 							</div>
+
 						</form>
 					</div>
-					
 					<div class="chat">
 						<div id="conversa" class="row">
 							<div class="row">
@@ -163,7 +158,7 @@
 								</div>
 							</div>
 						</div>
-						<div id="form-mensagem" class="row">
+						<div id="form-mensagem" class="row" ng-show=notEmpty>
 							<form id="mensagem-conversa">
 								<div class="container s12 m4 l8">
 									<input id="mensagem" name="mensagem" type="text" placeholder="Converse com o CogniBI" class="campo">
@@ -174,7 +169,6 @@
 							</form>
 						</div>
 					</div>
-				
 				</div>
 			</div>
 		</section>
@@ -208,18 +202,15 @@
 	</footer>
 
 	<!--AngularJS-->
+
 	<script src="js/angular.js"></script>
-	<!-- <script src="js/angular-resource.js"></script> -->
-	<!-- <script src="js/teste.js"></script> -->
-	<!--Import jQuery before materialize.js-->
-	<!--<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
 	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
 	<script src="js/formulario.js"></script>
+	<script src="js/app.js"></script>
 	<script src="js/chat.js"></script>
+	<script src="js/valoresSocioEconomico.js"></script>
 	<script src="js/menu.js"></script>
-	
-
 </body>
 
 </html>
