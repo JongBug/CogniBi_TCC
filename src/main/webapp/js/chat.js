@@ -3,14 +3,16 @@ app.controller("appCogniBiCtrl", ['$scope', '$http', 'socioEconomico', function 
 
   $scope.nomeAluno;
   $scope.escolaridadeAluno = $scope.valores.escolaridade.naoInfo;
-  $scope.sexoAluno = $scope.valores.sexo.feminino;
+  $scope.sexoAluno = $scope.valores.sexo.naoInfo;
 
   $scope.cadastro = function () {
-    if($scope.nomeAluno=="" || $scope.nomeAluno == null || $scope.emailAluno=="" || $scope.emailAluno == null){
+    if($scope.nomeAluno=="" || $scope.nomeAluno == null || $scope.emailAluno=="" || $scope.emailAluno == null
+    		|| $scope.escolaridadeAluno == "Não Informado" || $scope.sexoAluno == "Não Informado"){
     	$scope.notEmpty = false;
         return false;
     } else {
-    	$scope.notEmpty = true;
+      $scope.notEmpty = true;
+      $(".chat").show();
     	return true
     }
   }

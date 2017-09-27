@@ -120,37 +120,37 @@
 			</p>
 			<div class="row">
 				<div class="container z-depth-5 white">
-					<div class="formulario" ng-hide=notEmpty>
-						<form class="col s12">
-							<div class="row">
+					<div ng-hide=notEmpty>
+						<form class=" col s12">
+							<div class="row formulario">
 								<div class="input-field col s6 l8">
 									<label>Nome:</label>
 									<input ng-model="nomeAluno" placeholder="Insira seu nome aqui" id="form-nome" type="text" class="validate">
 								</div>
-								<div class="input-field col s12 l4">
-									<select ng-model="escolaridadeAluno">
+								<div class="col s12 l4">
+									<label>Escolaridade:</label>
+									<select ng-model="escolaridadeAluno" class="browser-default">
 										<option value="{{dados}}" ng-repeat="dados in valores.escolaridade" >{{dados}}</option>
 									</select>
-									<label>Escolaridade:</label>
 								</div>
 								<div class="input-field col s6 l8">
 									<label>E-mail:</label>
 									<input ng-model="emailAluno" placeholder="Insira seu nome aqui" id="form-email" type="email" class="validate">
 								</div>
-								<div class="input-field col s12 l4">
-									<select ng-model="sexoAluno">
+								<div class="col s12 l4">
+								<label>Sexo:</label>
+									<select ng-model="sexoAluno" class="browser-default">
 										<option value="{{dados}}" ng-repeat="dados in valores.sexo">{{dados}}</option>
 									</select>
-									<label>Sexo:</label>
 								</div>
-								<div class="center">
-									<a class="waves-effect waves-light btn" ng-click=cadastro()><i id="btn-envia-form" class="material-icons right">chat</i>Conversar !</a>
-								</div>
+							</div>
+							<div class="center row">
+								<a class="waves-effect waves-light btn" ng-click=cadastro()><i id="btn-envia-form" class="material-icons right">chat</i>Conversar !</a>
 							</div>
 
 						</form>
 					</div>
-					<div class="chat">
+					<div class="chat" >
 						<div id="conversa" class="row">
 							<div class="row">
 								<div class="balao-mensagem-cognibi left">
@@ -210,7 +210,6 @@
 	<script src="js/app.js"></script>
 	<script src="js/chat.js"></script>
 	<script src="js/valoresSocioEconomico.js"></script>
-	<script src="js/menu.js"></script>
 </body>
 
 </html>

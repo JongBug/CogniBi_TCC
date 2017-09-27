@@ -3,6 +3,6 @@ app.value("socioEconomico", {
     naoInfo : "Não Informado",  medioInc : "Médio - incompleto", medioComp : "Médio - Completo", superiorInc : "Superior - Inconpleto", superiorComp : "Superior - Completo"
   },
   sexo : {
-    feminino : "Feminino", masculino : "Masculino", indefinido : "Indefinido"
+    naoInfo : "Não Informado", feminino : "Feminino", masculino : "Masculino", indefinido : "Indefinido"
   }
 })
