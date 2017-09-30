@@ -66,9 +66,19 @@ public class AlunoCodec implements CollectibleCodec<DadosRequest> {
 	}
 
 	
-	public DadosRequest decode(BsonReader arg0, DecoderContext arg1) {
-		// TODO Auto-generated method stub
-		return null;
+	public DadosRequest decode(BsonReader reader, DecoderContext decoder) {
+		Document document = codec.decode(reader, decoder);
+
+		DadosRequest aluno = new DadosRequest();
+
+		aluno.setId(document.getObjectId("_id"));
+		aluno.setNome(document.getString("nome"));
+		aluno.setEscolaridade(document.getString("escolaridade"));
+		aluno.setSexo(document.getString("sexo"));
+		aluno.setEmail(document.getString("email"));
+		aluno.setTextoPergunta(document.getString("mensagem"));
+		
+		return aluno;
 	}
 
 }
