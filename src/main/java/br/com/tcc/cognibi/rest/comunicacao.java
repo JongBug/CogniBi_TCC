@@ -18,9 +18,12 @@ import com.ibm.watson.developer_cloud.conversation.v1.model.MessageResponse;
 
 import br.com.tcc.cognibi.beans.DadosComunicacao;
 import br.com.tcc.cognibi.beans.DadosRequest;
+import br.com.tcc.cognibi.repositorys.AlunoRepository;
 
 @Path("/cognibi")
 public class comunicacao {
+	
+
 	
 	@POST
 	@Path("/chat")
@@ -31,6 +34,17 @@ public class comunicacao {
 		System.out.println(data.getEscolaridade());
 		System.out.println(data.getSexo());
 		System.out.println(data.getTextoPergunta());
+		
+		//Persistindo dados
+		AlunoRepository alunoDados = new AlunoRepository();
+		DadosRequest dadosRequest = new DadosRequest(data.getNome(), data.getEscolaridade(), 
+				data.getSexo(), data.getEmail(), data.getTextoPergunta());
+		alunoDados.salvar(dadosRequest);
+		System.out.println("Salvou no banco");
+		
+		//Consultando dados: retorna uma lista de DadosRequest
+		System.out.println(alunoDados.obterTodosAlunos());
+		
 		
 		DadosComunicacao conversa = new DadosComunicacao();
 
