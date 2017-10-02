@@ -7,8 +7,10 @@ app.controller("appCogniBiCtrl", ['$scope', '$http', 'socioEconomico', function 
 
   $scope.cadastro = function () {
     if($scope.nomeAluno=="" || $scope.nomeAluno == null || $scope.emailAluno=="" || $scope.emailAluno == null
-    		|| $scope.escolaridadeAluno == "Não Informado" || $scope.sexoAluno == "Não Informado"){
+    		|| $scope.escolaridadeAluno == $scope.valores.escolaridade.naoInfo || $scope.sexoAluno == $scope.valores.sexo.naoInfo){
+    	
     	$scope.notEmpty = false;
+    	alert("Favor preencher todos os campos!");
         return false;
     } else {
       $scope.notEmpty = true;

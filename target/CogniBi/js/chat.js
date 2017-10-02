@@ -1,5 +1,23 @@
-var appCogniBi = angular.module('appCogniBi', []);
-appCogniBi.controller('appCogniBiCtrl', ['$scope', '$http', function ($scope, $http) {
+app.controller("appCogniBiCtrl", ['$scope', '$http', 'socioEconomico', function ($scope, $http, socioEconomico) {
+  $scope.valores = socioEconomico;
+
+  $scope.nomeAluno;
+  $scope.escolaridadeAluno = $scope.valores.escolaridade.naoInfo;
+  $scope.sexoAluno = $scope.valores.sexo.naoInfo;
+
+  $scope.cadastro = function () {
+    if($scope.nomeAluno=="" || $scope.nomeAluno == null || $scope.emailAluno=="" || $scope.emailAluno == null
+    		|| $scope.escolaridadeAluno == $scope.valores.escolaridade.naoInfo || $scope.sexoAluno == $scope.valores.sexo.naoInfo){
+    	
+    	$scope.notEmpty = false;
+    	alert("Favor preencher todos os campos!");
+        return false;
+    } else {
+      $scope.notEmpty = true;
+      $(".chat").show();
+    	return true
+    }
+  }
 
   var btnEnviaMensagem = document.querySelector("#btn-envia-mensagem");
   btnEnviaMensagem.addEventListener("click", function () {
@@ -15,13 +33,17 @@ appCogniBi.controller('appCogniBiCtrl', ['$scope', '$http', function ($scope, $h
       conversa.scrollTop = conversa.scrollHeight;
 
       var dataObj = { // Objeto com as informações.
-    		  textoPergunta: textoPergunta,
-              context: $scope.context
-          };
+        nome : $scope.nomeAluno,
+        escolaridade : $scope.escolaridadeAluno,
+        sexo : $scope.sexoAluno,
+        email : $scope.emailAluno,
+		    textoPergunta: textoPergunta,
+        context: $scope.context
+      };
 
       // Comunicao com servidor
       //var baseUrl = 'rest/cognibi/chat/' + textoPergunta;
-      var baseUrl = 'rest/cognibi/chat';      
+      var baseUrl = 'rest/cognibi/chat';
       $http.post(baseUrl, dataObj).then(function (response) {
         //AQUI EH A RESPOSTA DO SERVIDOR RESPONSE.DATA.CONVERSA
         //$scope.oi = response.data.conversa;

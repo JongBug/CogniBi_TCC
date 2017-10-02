@@ -1,0 +1,5 @@
+br\com\tcc\cognibi\beans\DadosRequest.class
+br\com\tcc\cognibi\rest\comunicacao.class
+br\com\tcc\cognibi\codecs\AlunoCodec.class
+br\com\tcc\cognibi\beans\DadosComunicacao.class
+br\com\tcc\cognibi\repositorys\AlunoRepository.class

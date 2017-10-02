@@ -120,7 +120,37 @@
 			</p>
 			<div class="row">
 				<div class="container z-depth-5 white">
-					<div class="chat">
+					<div ng-hide=notEmpty>
+						<form class=" col s12">
+							<div class="row formulario">
+								<div class="input-field col s6 l8">
+									<label>Nome:</label>
+									<input ng-model="nomeAluno" placeholder="Insira seu nome aqui" id="form-nome" type="text" class="validate">
+								</div>
+								<div class="col s12 l4">
+									<label>Escolaridade:</label>
+									<select ng-model="escolaridadeAluno" class="browser-default">
+										<option value="{{dados}}" ng-repeat="dados in valores.escolaridade" >{{dados}}</option>
+									</select>
+								</div>
+								<div class="input-field col s6 l8">
+									<label>E-mail:</label>
+									<input ng-model="emailAluno" placeholder="Insira seu nome aqui" id="form-email" type="email" class="validate">
+								</div>
+								<div class="col s12 l4">
+								<label>Sexo:</label>
+									<select ng-model="sexoAluno" class="browser-default">
+										<option value="{{dados}}" ng-repeat="dados in valores.sexo">{{dados}}</option>
+									</select>
+								</div>
+							</div>
+							<div class="center row">
+								<a class="waves-effect waves-light btn" ng-click=cadastro()><i id="btn-envia-form" class="material-icons right">chat</i>Conversar !</a>
+							</div>
+
+						</form>
+					</div>
+					<div class="chat" >
 						<div id="conversa" class="row">
 							<div class="row">
 								<div class="balao-mensagem-cognibi left">
@@ -128,7 +158,7 @@
 								</div>
 							</div>
 						</div>
-						<div id="form-mensagem" class="row">
+						<div id="form-mensagem" class="row" ng-show=notEmpty>
 							<form id="mensagem-conversa">
 								<div class="container s12 m4 l8">
 									<input id="mensagem" name="mensagem" type="text" placeholder="Converse com o CogniBI" class="campo">
@@ -148,7 +178,7 @@
 			<div class="row">
 				<div class="col l6 s12">
 					<h5 class="white-text">CogniBI</h5>
-					<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+					<p class="grey-text text-lighten-4">.....</p>
 				</div>
 				<div class="col l4 offset-l2 s12">
 					<h5 class="white-text">Links</h5>
@@ -172,15 +202,14 @@
 	</footer>
 
 	<!--AngularJS-->
-	<script src="js/angular.js"></script>
-	<!-- <script src="js/angular-resource.js"></script> -->
-	<!-- <script src="js/teste.js"></script> -->
-	<!--Import jQuery before materialize.js-->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="js/materialize.min.js"></script>
-	<script src="js/chat.js"></script>
-	<script src="js/menu.js"></script>
 
+	<script src="js/angular.js"></script>
+	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script src="js/formulario.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/chat.js"></script>
+	<script src="js/valoresSocioEconomico.js"></script>
 </body>
 
 </html>

@@ -1,6 +1,7 @@
 package br.com.tcc.cognibi.rest;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.ws.rs.Consumes;
@@ -23,28 +24,25 @@ import br.com.tcc.cognibi.repositorys.AlunoRepository;
 @Path("/cognibi")
 public class comunicacao {
 	
-
+	@GET
+	@Path("/allList")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<DadosRequest> getAllList() {
+		AlunoRepository alunoDados = new AlunoRepository();
+		return alunoDados.obterTodosAlunos();
+	}
 	
 	@POST
 	@Path("/chat")
 	@Produces(MediaType.APPLICATION_JSON)
 	public DadosComunicacao conversa(DadosRequest data) {
-		System.out.println(data.getNome());
-		System.out.println(data.getEmail());
-		System.out.println(data.getEscolaridade());
-		System.out.println(data.getSexo());
-		System.out.println(data.getTextoPergunta());
 		
 		//Persistindo dados
 		AlunoRepository alunoDados = new AlunoRepository();
 		DadosRequest dadosRequest = new DadosRequest(data.getNome(), data.getEscolaridade(), 
 				data.getSexo(), data.getEmail(), data.getTextoPergunta());
 		alunoDados.salvar(dadosRequest);
-		System.out.println("Salvou no banco");
-		
-		//Consultando dados: retorna uma lista de DadosRequest
-		System.out.println(alunoDados.obterTodosAlunos());
-		
+//		System.out.println("Salvou no banco");
 		
 		DadosComunicacao conversa = new DadosComunicacao();
 
