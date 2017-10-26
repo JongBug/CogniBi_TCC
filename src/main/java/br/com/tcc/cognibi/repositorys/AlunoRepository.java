@@ -37,7 +37,7 @@ public class AlunoRepository {
 		this.bancoDeDados = cliente.getDatabase("test");
 	}
 
-	public void salvar(DadosRequest aluno) {
+	public void salvarDados(DadosRequest aluno) {
 
 		criarConexao();
 		MongoCollection<DadosRequest> alunos = bancoDeDados.getCollection("alunos", DadosRequest.class);
@@ -51,7 +51,7 @@ public class AlunoRepository {
 		fecharConexao();
 	}
 
-	public List<DadosRequest> obterTodosAlunos() {
+	public List<DadosRequest> obterTodosDialogos() {
 		criarConexao();
 		MongoCollection<DadosRequest> alunos = bancoDeDados.getCollection("alunos", DadosRequest.class);
 		MongoCursor<DadosRequest> resultados = alunos.find().iterator();

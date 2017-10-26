@@ -13,17 +13,19 @@ public class DadosRequest {
 	private String email;
 	private String textoPergunta;
 	private Map<String, Object> context;
+	private String textoResposta;
 	
 	public DadosRequest() {
 		
 	}
 	
-	public DadosRequest(String nome, String escolaridade, String sexo, String email, String textoPergunta) {
+	public DadosRequest(String nome, String escolaridade, String sexo, String email, String textoPergunta, String textoResposta) {
 		this.nome = nome;
 		this.escolaridade = escolaridade;
 		this.sexo = sexo;
 		this.email = email;
 		this.textoPergunta = textoPergunta;
+		this.textoResposta = textoResposta;
 	}
 	
 	//Getters and Setters
@@ -71,6 +73,14 @@ public class DadosRequest {
 
 	public void setContext(Map<String, Object> context) {
 		this.context = context;
+	}
+	
+	public void setTextoResposta(String textoResposta) {
+		this.textoResposta = textoResposta;
+	}
+	
+	public String getTextoResposta() {
+		return textoResposta;
 	}
 
 	public DadosRequest criarId() {

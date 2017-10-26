@@ -29,6 +29,8 @@ public class AlunoCodec implements CollectibleCodec<DadosRequest> {
 		String sexo = aluno.getSexo();
 		String email = aluno.getEmail();
 		String mensagem = aluno.getTextoPergunta();
+		String respostaCognibi = aluno.getTextoResposta();
+		
 
 		Document document = new Document();
 
@@ -38,6 +40,7 @@ public class AlunoCodec implements CollectibleCodec<DadosRequest> {
 		document.put("sexo", sexo);
 		document.put("email", email);
 		document.put("mensagem", mensagem);
+		document.put("respostaCognibi", respostaCognibi);
 		
 		codec.encode(writer, document, encoder);
 	}
@@ -77,6 +80,7 @@ public class AlunoCodec implements CollectibleCodec<DadosRequest> {
 		aluno.setSexo(document.getString("sexo"));
 		aluno.setEmail(document.getString("email"));
 		aluno.setTextoPergunta(document.getString("mensagem"));
+		aluno.setTextoResposta(document.getString("respostaCognibi"));
 		
 		return aluno;
 	}

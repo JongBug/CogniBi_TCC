@@ -23,26 +23,21 @@ import br.com.tcc.cognibi.repositorys.AlunoRepository;
 
 @Path("/cognibi")
 public class comunicacao {
-	
+
 	@GET
 	@Path("/allList")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<DadosRequest> getAllList() {
 		AlunoRepository alunoDados = new AlunoRepository();
-		return alunoDados.obterTodosAlunos();
+		return alunoDados.obterTodosDialogos();
 	}
-	
+
 	@POST
 	@Path("/chat")
 	@Produces(MediaType.APPLICATION_JSON)
 	public DadosComunicacao conversa(DadosRequest data) {
 		
-		//Persistindo dados
-		AlunoRepository alunoDados = new AlunoRepository();
-		DadosRequest dadosRequest = new DadosRequest(data.getNome(), data.getEscolaridade(), 
-				data.getSexo(), data.getEmail(), data.getTextoPergunta());
-		alunoDados.salvar(dadosRequest);
-//		System.out.println("Salvou no banco");
+		
 		
 		DadosComunicacao conversa = new DadosComunicacao();
 
@@ -53,23 +48,34 @@ public class comunicacao {
 
 		conversa.setConversa(response.getText().get(0));
 		conversa.setContext(response.getContext());
+		String respostaCognibi = null;
+		respostaCognibi = response.getText().get(0);
+		
+		//Persistindo dados
+		AlunoRepository alunoDados = new AlunoRepository();
+		DadosRequest dadosRequest = new DadosRequest(
+				data.getNome(), 
+				data.getEscolaridade(), 
+				data.getSexo(), 
+				data.getEmail(), 
+				data.getTextoPergunta(), 
+				respostaCognibi);
+		alunoDados.salvarDados(dadosRequest);
+		
 
 		return conversa;
 	}
-	
-	public static MessageResponse conversationAPI(String input,Map<String, Object> context){
+
+	public static MessageResponse conversationAPI(String input, Map<String, Object> context) {
 
 		ConversationService service = new ConversationService("2017-02-03");
 		service.setUsernameAndPassword("6de4ed4e-74ea-43eb-9002-8b788f3b2d4f", "gOX60XnFxpmA");
-		
-		MessageRequest newMessage = new MessageRequest.Builder()
-				.inputText(input)
-				.context(context)
-				.build();
-		
+
+		MessageRequest newMessage = new MessageRequest.Builder().inputText(input).context(context).build();
+
 		String workspaceId = "0d10283e-5cf9-43e6-95fd-1f7f7b276ac6";
 		MessageResponse response = service.message(workspaceId, newMessage).execute();
-		
+
 		return response;
 	}
 }
