@@ -21,6 +21,7 @@ import br.com.tcc.cognibi.beans.DadosComunicacao;
 import br.com.tcc.cognibi.beans.DadosRequest;
 import br.com.tcc.cognibi.beans.DadosTabela;
 import br.com.tcc.cognibi.repositorys.AlunoRepository;
+import br.com.tcc.cognibi.repositorys.DadosTabelaRepository;
 
 @Path("/cognibi")
 public class comunicacao {
@@ -36,10 +37,10 @@ public class comunicacao {
 	@GET
 	@Path("/tabela")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<DadosTabela> getAllList() {
-		//AQUI MUDAR PARA UMA NOVA CONSULTA
-		AlunoRepository alunoDados = new AlunoRepository();
-		return alunoDados.obterTodosDialogos();
+	public List<DadosTabela> getAllStatistics() {
+		DadosTabelaRepository dadosTabela = new DadosTabelaRepository();
+		return dadosTabela.obterTodosDialogos();
+		
 	}
 
 	@POST

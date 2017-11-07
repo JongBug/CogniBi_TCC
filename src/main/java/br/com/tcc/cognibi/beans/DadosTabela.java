@@ -1,28 +1,30 @@
+
+
 package br.com.tcc.cognibi.beans;
 
 import java.util.Map;
 
 import org.bson.types.ObjectId;
 
-public class DadosRequest {
+public class DadosTabela {
 
 	private String textoPergunta;
-	private String taxa1;
-	private String taxa2;
-	private String taxa3;
-	private String taxa4;
+	private String taxaOneVsOne;
+	private String taxaOneVsRest;
+	private String taxaNayveBayes;
+	private String taxaAdaboost;
 	private String resposta;
 	
-	public DadosRequest() {
+	public DadosTabela() {
 		
 	}
 	
-	public DadosRequest(String textoPergunta, String taxa1, String taxa2, String taxa3, String taxa4, String resposta) {
+	public DadosTabela(String textoPergunta, String taxaOneVsOne, String taxaOneVsRest, String taxaNayveBayes, String taxaAdaboost, String resposta) {
 		this.textoPergunta = textoPergunta;
-		this.taxa1 = taxa1;
-		this.taxa2 = taxa2;
-		this.taxa3 = taxa3;
-		this.taxa4 = taxa4;
+		this.taxaOneVsOne = taxaOneVsOne;
+		this.taxaOneVsRest = taxaOneVsRest;
+		this.taxaNayveBayes = taxaNayveBayes;
+		this.taxaAdaboost = taxaAdaboost;
 		this.resposta = resposta;
 	}
 	
@@ -33,29 +35,29 @@ public class DadosRequest {
 	public void setTextoPergunta(String textoPergunta) {
 		this.textoPergunta = textoPergunta;
 	}	
-	public String getTaxa1() {
-		return taxa1;
+	public String getTaxaOneVsOne() {
+		return taxaOneVsOne;
 	}
-	public void setTaxa1(String taxa1) {
-		this.taxa1 = taxa1;
+	public void setTaxaOneVsOne(String taxaOneVsOne) {
+		this.taxaOneVsOne = taxaOneVsOne;
 	}
-	public String getTaxa2() {
-		return taxa2;
+	public String getTaxaOneVsRest() {
+		return taxaOneVsRest;
 	}
-	public void setTaxa2(String taxa2) {
-		this.taxa2 = taxa2;
+	public void setTaxaOneVsRest(String taxaOneVsRest) {
+		this.taxaOneVsRest = taxaOneVsRest;
 	}
-	public String getTaxa3() {
-		return taxa3;
+	public String getTaxaNayveBayes() {
+		return taxaNayveBayes;
 	}
-	public void setTaxa3(String taxa3) {
-		this.taxa3 = taxa3;
+	public void setTaxaNayveBayes(String taxaNayveBayes) {
+		this.taxaNayveBayes = taxaNayveBayes;
 	}
-	public String getTaxa4() {
-		return taxa4;
+	public String getTaxaAdaboost() {
+		return taxaAdaboost;
 	}
-	public void setTaxa4(String taxa4) {
-		this.taxa4 = taxa4;
+	public void setTaxaAdaboost(String taxaAdaboost) {
+		this.taxaAdaboost = taxaAdaboost;
 	}
 	public void setResposta(String resposta) {
 		this.resposta = resposta;
