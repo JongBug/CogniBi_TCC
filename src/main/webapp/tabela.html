@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="appTabela">
 
-	<script src="../js/jquery-3.2.1.js"></script>
 	
+	<script src="js/jquery-3.2.1.js"></script>
 	<!-- Compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
@@ -11,18 +11,16 @@
 <head>
 	<title>Estatisticas</title>
 </head>
+
 <body ng-controller="tabelaCtrl">
 
 
-
-<script src="../js/tabela/highcharts.js"></script>
-
-<script src="../js/angular.js"></script>
-
 	
-	<script src="../js/tabela/data.js"></script>
-	<script src="../js/tabela/drilldown.js"></script>
-	<script src="../js/tabela/app.js"></script>
+	<script src="js/tabela/highcharts.js"></script>
+	<script src="js/angular.js"></script>
+	<script src="js/tabela/data.js"></script>
+	<script src="js/tabela/drilldown.js"></script>
+	<script src="js/tabela/app.js"></script>
 
 	<nav class="blue-grey darken-1">
     <div class="nav-wrapper">
@@ -105,19 +103,19 @@ Highcharts.chart('container', {
 			colorByPoint: true,
 			data: [{
 					name: 'OneVsOne',
-					y: 55.33, //AQUIIIIIIIIIIIIIIIIIIIIIIII
+					y: {{dados.taxa1}}, //AQUIIIIIIIIIIIIIIIIIIIIIIII
 					drilldown: 'OneVsOne'
 			}, {
 					name: 'OneVsRest',
-					y: 56.03, //AQUIIIIIIIIIIIIIIIIIIIIIIII
+					y: {{dados.taxa2}}, //AQUIIIIIIIIIIIIIIIIIIIIIIII
 					drilldown: 'OneVsRest'
 			}, {
 					name: 'Adaboostclassifier',
-					y: 70.38, //AQUIIIIIIIIIIIIIIIIIIIIIIII
+					y: {{dados.taxa3}}, //AQUIIIIIIIIIIIIIIIIIIIIIIII
 					drilldown: 'Adaboostclassifier'
 			}, {
 					name: 'NaiveBayes',
-					y: 19.77, //AQUIIIIIIIIIIIIIIIIIIIIIIII
+					y: {{dados.taxa4}}, //AQUIIIIIIIIIIIIIIIIIIIIIIII
 					drilldown: 'NaiveBayes'
 			}]
 	}],
