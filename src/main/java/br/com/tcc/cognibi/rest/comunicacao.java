@@ -39,31 +39,8 @@ public class comunicacao {
 	@Path("/tabela")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<DadosTabela> getAllStatistics() {
-//		DadosTabelaRepository dadosTabela = new DadosTabelaRepository();
-//		return dadosTabela.obterTodosDialogos();
-		
-		//teste
-		List<DadosTabela> list = new ArrayList<DadosTabela>();
-		DadosTabela tabela = new DadosTabela();
-		tabela.setResposta("Caique viado");
-		tabela.setTaxaAdaboost("10");
-		tabela.setTaxaNayveBayes("20");
-		tabela.setTaxaOneVsOne("30");
-		tabela.setTaxaOneVsRest("70");
-		tabela.setTextoPergunta("caique eh viado?");
-		
-		list.add(tabela);
-		
-		DadosTabela tabela2 = new DadosTabela();
-		tabela2.setResposta("2 Caique viado");
-		tabela2.setTaxaAdaboost("20");
-		tabela2.setTaxaNayveBayes("30");
-		tabela2.setTaxaOneVsOne("40");
-		tabela2.setTaxaOneVsRest("80");
-		tabela2.setTextoPergunta("2 caique eh viado?");
-		list.add(tabela2);
-		return list;
-		
+		DadosTabelaRepository dadosTabela = new DadosTabelaRepository();		
+		return dadosTabela.obterTodosDialogos();		
 	}
 
 	@POST

@@ -63,24 +63,24 @@ app.controller("tabelaCtrl", ['$scope', '$http', function ($scope, $http) {
         		},
 
         		series: [{
-        				name: 'Brands',
+        				name: 'Algoritmo',
         				colorByPoint: true,
         				data: [{
-        						name: 'OneVsOne',
+        						name: 'Naive Bayes',
         						y: $scope.taxa1, //AQUIIIIIIIIIIIIIIIIIIIIIIII
-        						drilldown: 'OneVsOne'
+        						drilldown: 'Naive Bayes'
         				}, {
-        						name: 'OneVsRest',
+        						name: 'One Vs One',
         						y: $scope.taxa2, //AQUIIIIIIIIIIIIIIIIIIIIIIII
-        						drilldown: 'OneVsRest'
+        						drilldown: 'One Vs One'
         				}, {
-        						name: 'Adaboostclassifier',
+        						name: 'One Vs Rest',
         						y: $scope.taxa3, //AQUIIIIIIIIIIIIIIIIIIIIIIII
-        						drilldown: 'Adaboostclassifier'
+        						drilldown: 'One Vs Rest'
         				}, {
-        						name: 'NaiveBayes',
+        						name: 'AdaboostClassifier',
         						y: $scope.taxa4, //AQUIIIIIIIIIIIIIIIIIIIIIIII
-        						drilldown: 'NaiveBayes'
+        						drilldown: 'AdaboostClassifier'
         				}]
         		}],
         		drilldown: {

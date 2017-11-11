@@ -33,12 +33,12 @@ public class DadosTabelaCodec implements CollectibleCodec<DadosTabela> {
 
 		DadosTabela statisticas = new DadosTabela();
 		
-		statisticas.setTextoPergunta(document.getString("textoPergunta"));
+		statisticas.setTextoPergunta(document.getString("mensagem"));
 		statisticas.setTaxaOneVsOne(String.valueOf(document.getInteger("taxaOneVsOne")));
 		statisticas.setTaxaOneVsRest(String.valueOf(document.getInteger("taxaOneVsRest")));
-		statisticas.setTaxaNayveBayes(String.valueOf(document.getInteger("taxaNayveBayes")));
+		statisticas.setTaxaNayveBayes(String.valueOf(document.getInteger("taxaNaiveBayes")));
 		statisticas.setTaxaAdaboost(String.valueOf(document.getInteger("taxaAdaboost")));
-		statisticas.setResposta(document.getString("resposta"));
+		statisticas.setResposta(document.getString("resposta"));		
 		
 		//aluno.setId(document.getObjectId("_id"));
 		
